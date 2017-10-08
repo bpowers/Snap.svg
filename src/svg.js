@@ -1858,4 +1858,4 @@ Snap.plugin = function (f) {
 };
 glob.win.Snap = Snap;
 return Snap;
-}(window || this));
+}(typeof window !== "undefined" ? window : this));

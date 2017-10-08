@@ -14,4 +14,4 @@
         // Snap adds itself to window
         factory(glob, glob.eve);
     }
-}(window || this, function (window, eve) {
+}(typeof window !== "undefined" ? window : this, function (window, eve) {
