@@ -1319,7 +1319,7 @@ function add2group(list) {
     return this;
 }
 // Hub garbage collector every 10s
-setInterval(function () {
+function hubGC() {
     for (var key in hub) if (hub[has](key)) {
         var el = hub[key],
             node = el.node;
@@ -1327,7 +1327,10 @@ setInterval(function () {
             delete hub[key];
         }
     }
-}, 1e4);
+}
+if (typeof window !== "undefined" && window.hasOwnProperty("document")) {
+    setInterval(hubGC, 1e4);
+}
 function Element(el) {
     if (el.snap in hub) {
         return hub[el.snap];
