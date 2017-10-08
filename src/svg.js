@@ -58,9 +58,10 @@ Snap.toString = function () {
     return "Snap v" + this.version;
 };
 Snap._ = {};
+var __win = root.hasOwnProperty("window") ? root.window : {document: {}};
 var glob = {
-    win: root.window,
-    doc: root.window.document
+    win: __win,
+    doc: __win.document,
 };
 Snap._.glob = glob;
 var has = "hasOwnProperty",
